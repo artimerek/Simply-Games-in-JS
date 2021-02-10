@@ -4,6 +4,19 @@ const random = Math.floor(Math.random() * 20) + 1;
 
 let counter = 0;
 
+let highscore = 0;
+
+//restores default values
+document.querySelector(".again").addEventListener("click", function () {
+  document.querySelector(".message").textContent = "Start guessing...";
+  document.querySelector(".guess").value = " ";
+  document.querySelector(".number").textContent = "?";
+  document.querySelector("body").style.backgroundColor = "#222";
+  document.querySelector(".number").style.width = "15rem";
+  document.querySelector(".label-score").textContent = "💯 Score: ";
+});
+
+//checking value of number
 document.querySelector(".check").addEventListener("click", function () {
   const guess = Number(document.querySelector(".guess").value);
 
@@ -21,10 +34,14 @@ document.querySelector(".check").addEventListener("click", function () {
     document.querySelector(".message").textContent = "Correct answer!";
     document.querySelector("body").style.backgroundColor = "#ecd540";
     document.querySelector(".number").style.width = "30rem";
-    document.querySelector(
-      ".label-score"
-    ).textContent = `💯 Score: ${ammountOfPoints(counter)}`;
+
+    let points = ammountOfPoints(counter);
+    document.querySelector(".label-score").textContent = `💯 Score: ${points}`;
     counter = 0;
+    if (highscore < points)
+      document.querySelector(
+        ".label-highscore"
+      ).textContent = `🥇 Highscore: ${points}`;
 
     document.querySelector(".number").textContent = random;
   }
