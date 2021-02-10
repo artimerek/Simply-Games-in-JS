@@ -1,12 +1,12 @@
 "use strict";
 
-const random = Math.floor(Math.random() * 20) + 1;
-
+let random = Math.floor(Math.random() * 20) + 1;
 let counter = 0;
 let highscore = 0;
 
 //restores default values
 document.querySelector(".again").addEventListener("click", function () {
+  random = Math.floor(Math.random() * 20) + 1;
   document.querySelector(".message").textContent = "Start guessing...";
   document.querySelector(".guess").value = " ";
   document.querySelector(".number").textContent = "?";
@@ -35,12 +35,14 @@ document.querySelector(".check").addEventListener("click", function () {
     document.querySelector(".number").style.width = "30rem";
 
     let points = ammountOfPoints(counter);
-    document.querySelector(".label-score").textContent = `💯 Score: ${points}`;
+    document.querySelector(".label-score").textContent = `Score: ${points}`;
     counter = 0;
-    if (highscore < points)
+    if (highscore < points) {
+      highscore = points;
       document.querySelector(
         ".label-highscore"
-      ).textContent = `🥇 Highscore: ${points}`;
+      ).textContent = `Highscore: ${points}`;
+    }
 
     document.querySelector(".number").textContent = random;
   }
