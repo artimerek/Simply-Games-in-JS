@@ -3,7 +3,6 @@
 const random = Math.floor(Math.random() * 20) + 1;
 
 let counter = 0;
-
 let highscore = 0;
 
 //restores default values
@@ -11,7 +10,7 @@ document.querySelector(".again").addEventListener("click", function () {
   document.querySelector(".message").textContent = "Start guessing...";
   document.querySelector(".guess").value = " ";
   document.querySelector(".number").textContent = "?";
-  document.querySelector("body").style.backgroundColor = "#222";
+  document.querySelector("body").style.backgroundColor = "#0099ff";
   document.querySelector(".number").style.width = "15rem";
   document.querySelector(".label-score").textContent = "💯 Score: ";
 });
@@ -32,7 +31,7 @@ document.querySelector(".check").addEventListener("click", function () {
     console.log(counter);
   } else {
     document.querySelector(".message").textContent = "Correct answer!";
-    document.querySelector("body").style.backgroundColor = "#ecd540";
+    document.querySelector("body").style.backgroundColor = "#ff5050";
     document.querySelector(".number").style.width = "30rem";
 
     let points = ammountOfPoints(counter);
