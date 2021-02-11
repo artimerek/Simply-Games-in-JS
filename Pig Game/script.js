@@ -1,16 +1,22 @@
 'use strict';
 
-const scorePlayer = document.querySelector('#score--0');
-const scorePlayer1 = document.getElementById('score--1');
+const scorePlayerDisplay = document.querySelector('#score--0');
+const scorePlayer1Display = document.getElementById('score--1');
 const diceDisplay = document.querySelector('.dice');
 const buttonNewGame = document.querySelector('.btn--new');
 const buttonRoll = document.querySelector('.btn--roll');
 const buttonHold = document.querySelector('.btn--hold');
+const currentPlayerScore = document.getElementById('current--0');
+const currentPlayer1Score = document.getElementById('current--1');
+
+let currentScore = 0;
+let playerScore = 0;
+let player1Score = 0;
 
 //setting default values
 
-scorePlayer.textContent = 0;
-scorePlayer1.textContent = 0;
+scorePlayerDisplay.textContent = 0;
+scorePlayer1Display.textContent = 0;
 diceDisplay.classList.add('hidden');
 
 //Drawing impl
@@ -19,4 +25,11 @@ buttonRoll.addEventListener('click', function () {
 
   diceDisplay.classList.remove('hidden');
   diceDisplay.src = `dice-${dice}.png`;
+
+  if (dice !== 1) {
+    currentScore += dice;
+    currentPlayerScore.textContent = currentScore;
+  } else {
+    //switch player
+  }
 });
