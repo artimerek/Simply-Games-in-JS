@@ -47,7 +47,7 @@ buttonHold.addEventListener('click', function () {
     currentScore = 0;
     document.getElementById(`score--${activePlayer}`).textContent =
       scores[activePlayer];
-    if (scores[activePlayer] >= 100) {
+    if (scores[activePlayer] >= 10) {
       isPlayin = false;
       document
         .querySelector(`.player--${activePlayer}`)
@@ -58,6 +58,24 @@ buttonHold.addEventListener('click', function () {
       diceDisplay.classList.add('hidden');
     } else switchPlayer();
   }
+});
+
+buttonNewGame.addEventListener('click', function () {
+  isPlayin = true;
+  document
+    .querySelector(`.player--${activePlayer}`)
+    .classList.remove('player--winner');
+  activePlayer = 0;
+  document
+    .querySelector(`.player--${activePlayer}`)
+    .classList.add('player--active');
+  scores[0] = 0;
+  scores[1] = 0;
+  currentPlayerScore.textContent = 0;
+  currentPlayer1Score.textContent = 0;
+  scorePlayerDisplay.textContent = 0;
+  scorePlayer1Display.textContent = 0;
+  diceDisplay.classList.add('hidden');
 });
 
 const switchPlayer = function () {
