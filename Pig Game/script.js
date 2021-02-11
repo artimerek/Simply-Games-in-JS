@@ -65,6 +65,9 @@ buttonNewGame.addEventListener('click', function () {
   document
     .querySelector(`.player--${activePlayer}`)
     .classList.remove('player--winner');
+  document
+    .querySelector(`.player--${activePlayer}`)
+    .classList.remove('player--active');
   activePlayer = 0;
   document
     .querySelector(`.player--${activePlayer}`)
