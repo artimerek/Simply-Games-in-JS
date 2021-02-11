@@ -12,6 +12,7 @@ const currentPlayer1Score = document.getElementById('current--1');
 let currentScore = 0;
 let playerScore = 0;
 let player1Score = 0;
+let activePlayer = 0;
 
 //setting default values
 
@@ -28,8 +29,10 @@ buttonRoll.addEventListener('click', function () {
 
   if (dice !== 1) {
     currentScore += dice;
-    currentPlayerScore.textContent = currentScore;
+    document.getElementById(
+      `current--${activePlayer}`
+    ).textContent = currentScore;
   } else {
-    //switch player
+    activePlayer = activePlayer === 0 ? 1 : 0;
   }
 });
