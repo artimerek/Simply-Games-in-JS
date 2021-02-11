@@ -47,7 +47,7 @@ buttonHold.addEventListener('click', function () {
     currentScore = 0;
     document.getElementById(`score--${activePlayer}`).textContent =
       scores[activePlayer];
-    if (scores[activePlayer] >= 10) {
+    if (scores[activePlayer] >= 100) {
       isPlayin = false;
       document
         .querySelector(`.player--${activePlayer}`)
